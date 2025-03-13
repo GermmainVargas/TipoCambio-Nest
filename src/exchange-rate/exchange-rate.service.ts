@@ -10,7 +10,7 @@ export class ExchangeRateService {
     
     private token: string | null = null;
     private readonly API_URL = "https://20.188.75.138:50000/b1s/v1";
-    private readonly AZA_URL = "http://127.0.0.1:8000";
+    private readonly AZA_URL = "http://localhost:3000";
 
     constructor(private readonly httpService: HttpService) {}
 
@@ -59,7 +59,7 @@ export class ExchangeRateService {
 
     private async getExchangeRate(): Promise<number> {
         try {
-          const response = await this.httpService.get(`${this.AZA_URL}/tipodecambio_actual`).toPromise();
+          const response = await this.httpService.get(`${this.AZA_URL}/task-rate/tipo-de-cambio`).toPromise();
           return response?.data.tipo_de_cambio;
         } catch (error) {
           throw new HttpException('Error obteniendo tipo de cambio', HttpStatus.BAD_REQUEST);
@@ -68,7 +68,7 @@ export class ExchangeRateService {
 
     private async getExchangeRateEUR(): Promise<number> {
         try {
-            const response = await this.httpService.get(`${this.AZA_URL}/tipodecambio_euro`).toPromise();
+            const response = await this.httpService.get(`${this.AZA_URL}/exchange-rate/tipo-de-cambio`).toPromise();
             return response?.data.tipo_de_cambio;
         } catch (error) {
             throw new HttpException('Error obteniendo tipo de cambio EUR', HttpStatus.BAD_REQUEST);

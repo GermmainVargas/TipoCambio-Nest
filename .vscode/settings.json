@@ -1,3 +1,7 @@
 {
-    "material-icon-theme.activeIconPack": "nest"
+    "material-icon-theme.activeIconPack": "nest",
+
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
