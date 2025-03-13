@@ -52,7 +52,7 @@ export class ExchangeRateService {
           console.log('Sesión iniciada con éxito, Token:', this.token);
           return data.SessionId;
         } catch (error) {
-          console.error('Error en inicio de sesión automático:', error.message);
+          console.error('Error en inicio de sesión automátic:', error.message);
           throw new HttpException('Error en inicio de sesión', HttpStatus.UNAUTHORIZED);
         }
       }
